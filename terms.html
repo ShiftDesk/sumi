@@ -1,0 +1,729 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Terms of Use — Sumi</title>
+  <meta name="description" content="Terms of Use for Sumi, the kakeibo budgeting journal for iPhone by chmays.app." />
+  <meta name="theme-color" content="#f2f5f9" />
+  <meta property="og:title" content="Sumi — Kakeibo Budget &amp; Savings" />
+  <meta property="og:description" content="Save first. Spend mindfully. A calm, private kakeibo budgeting journal for iPhone." />
+  <meta property="og:image" content="sumi-logo.jpg" />
+  <link rel="icon" href="sumi-logo.jpg" />
+  <link rel="apple-touch-icon" href="sumi-logo.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&amp;family=Noto+Serif+JP:wght@500&amp;display=swap" rel="stylesheet" />
+  <style>
+/* =========================================================
+   Sumi — website styles
+   Shared by index.html, privacy.html and terms.html
+   ========================================================= */
+
+:root {
+  --paper: #f2f5f9;
+  --card: #ffffff;
+  --ink: #1c2e44;          /* darkest colour: navy, never black */
+  --body: #5a6878;
+  --muted: #6f7c8a;
+  --line: rgb(28 46 68 / .12);
+  --accent: #2f76b8;
+  --accent-deep: #235e94;
+  --accent-soft: #e3eef9;
+  --wordmark: #eef1f8;
+  --mist: #e2e3f1;         /* pale lavender the blue-hour meadow fades into */
+
+  --teal: #2a9d8f;   --teal-deep: #1f7a6f;   --teal-tint: #e0f3f1;
+  --coral: #e76f51;  --coral-deep: #c4512f;  --coral-tint: #fce8e2;
+  --peri: #6c7fd8;   --peri-deep: #4e61b8;   --peri-tint: #e8ebfa;
+  --amber: #e09a2d;  --amber-deep: #a86c10;  --amber-tint: #fbf0dd;
+
+  --font: "Inter", system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+  --serif: "Noto Serif JP", "Hiragino Mincho ProN", "Yu Mincho", serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+a { color: inherit; text-decoration: none; }
+ul { margin: 0; padding: 0; list-style: none; }
+img { display: block; max-width: 100%; }
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+.skip {
+  position: absolute; left: 16px; top: -60px; z-index: 100;
+  padding: 10px 14px; border-radius: 10px;
+  background: var(--ink); color: #fff; font-weight: 600; font-size: 14px;
+}
+.skip:focus { top: 16px; }
+
+.wrap {
+  width: min(1180px, 100% - 40px);
+  margin: 0 auto;
+}
+
+/* ---------- Navigation ---------- */
+
+.nav {
+  position: sticky; top: 0; z-index: 50;
+  background: rgb(242 245 249 / .82);
+  backdrop-filter: saturate(160%) blur(14px);
+  -webkit-backdrop-filter: saturate(160%) blur(14px);
+  border-bottom: 1px solid transparent;
+  transition: border-color .2s;
+}
+.nav.is-scrolled { border-bottom-color: var(--line); }
+.nav__inner {
+  display: flex; align-items: center; justify-content: space-between;
+  height: 68px;
+}
+.nav__brand {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: 18px; font-weight: 600; letter-spacing: -0.02em;
+}
+.nav__brand img {
+  width: 34px; height: 34px; border-radius: 9px;
+  box-shadow: 0 2px 6px rgb(28 46 68 / .18);
+}
+.nav__links {
+  display: flex; align-items: center; gap: 28px;
+  font-size: 14.5px; font-weight: 500; color: var(--body);
+}
+.nav__links a { transition: color .2s; }
+.nav__links a:hover, .nav__links a[aria-current="page"] { color: var(--ink); }
+
+/* ---------- Buttons ---------- */
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  height: 46px; padding: 0 22px 0 20px;
+  border-radius: 12px;
+  background: var(--ink); color: #fff;
+  font-size: 15px; font-weight: 600; letter-spacing: -0.01em;
+  box-shadow: 0 8px 20px rgb(28 46 68 / .18);
+  transition: background .2s, transform .2s;
+}
+.btn svg { width: 17px; height: 17px; margin-top: -2px; }
+.btn:hover { background: var(--accent); transform: translateY(-1px); }
+.btn--small { height: 38px; padding: 0 16px; border-radius: 10px; font-size: 13.5px; box-shadow: none; }
+.btn--small svg { width: 14px; height: 14px; }
+.btn--ghost {
+  background: var(--card); color: var(--ink);
+  border: 1px solid var(--line); box-shadow: none;
+}
+.btn--ghost:hover { background: var(--accent-soft); }
+
+/* ---------- Hero ---------- */
+
+.hero { padding: 72px 0 96px; }
+.hero__grid {
+  display: grid; grid-template-columns: 1.08fr .92fr; gap: 56px; align-items: center;
+}
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 7px 14px 7px 10px; border-radius: 999px;
+  background: var(--card); border: 1px solid var(--line);
+  font-size: 13px; font-weight: 600; color: var(--accent-deep);
+}
+.eyebrow__kanji {
+  font-family: var(--serif); font-weight: 500; font-size: 14px;
+  padding: 2px 8px; border-radius: 999px; background: var(--accent-soft);
+}
+.hero h1 {
+  margin: 22px 0 0;
+  font-size: clamp(42px, 6vw, 72px); line-height: 1.02;
+  font-weight: 700; letter-spacing: -0.045em;
+}
+.hero h1 span { color: var(--accent); }
+.hero__lead {
+  margin: 22px 0 0; max-width: 34em;
+  font-size: 18px; line-height: 1.6; color: var(--body); letter-spacing: -0.01em;
+}
+.hero__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; margin-top: 32px; }
+.hero__note { font-size: 13.5px; color: var(--muted); font-weight: 500; }
+
+.hero__art { position: relative; display: grid; place-items: center; }
+.hero__art::before {
+  content: ""; position: absolute; inset: 6% 4%;
+  border-radius: 40px;
+  background: radial-gradient(60% 60% at 50% 45%, rgb(47 118 184 / .25), rgb(47 118 184 / 0) 70%);
+  filter: blur(10px);
+}
+.hero__logo {
+  position: relative;
+  width: min(420px, 100%); aspect-ratio: 1;
+  border-radius: 22%;
+  box-shadow: 0 40px 80px -20px rgb(28 46 68 / .45), 0 0 0 1px rgb(255 255 255 / .6) inset;
+  animation: float 7s ease-in-out infinite;
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(-1.5deg); }
+  50% { transform: translateY(-12px) rotate(0deg); }
+}
+
+/* ---------- Sections ---------- */
+
+.section { padding: 96px 0; }
+.section--white { background: var(--card); border-block: 1px solid var(--line); }
+.section__head { max-width: 640px; margin: 0 auto 52px; text-align: center; }
+.section__kicker {
+  font-size: 13px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--accent);
+}
+.section__head h2 {
+  margin: 12px 0 0;
+  font-size: clamp(30px, 4vw, 44px); line-height: 1.1;
+  font-weight: 700; letter-spacing: -0.04em;
+}
+.section__head p {
+  margin: 16px 0 0; font-size: 17px; line-height: 1.6; color: var(--body);
+}
+
+/* Features */
+.features { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.feature {
+  padding: 26px; border-radius: 22px;
+  background: var(--card); border: 1px solid var(--line);
+  box-shadow: 0 10px 30px -18px rgb(28 46 68 / .3);
+  transition: transform .25s, box-shadow .25s;
+}
+.section--white .feature { background: var(--paper); }
+.feature:hover { transform: translateY(-3px); box-shadow: 0 18px 40px -20px rgb(28 46 68 / .35); }
+.icon {
+  display: grid; place-items: center;
+  width: 46px; height: 46px; border-radius: 50%;
+  background: var(--accent-soft); color: var(--accent-deep);
+}
+.icon svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.icon--teal { background: var(--teal-tint); color: var(--teal-deep); }
+.icon--coral { background: var(--coral-tint); color: var(--coral-deep); }
+.icon--peri { background: var(--peri-tint); color: var(--peri-deep); }
+.icon--amber { background: var(--amber-tint); color: var(--amber-deep); }
+.feature h3 { margin: 18px 0 0; font-size: 18px; font-weight: 650; letter-spacing: -0.03em; }
+.feature p { margin: 8px 0 0; font-size: 15px; line-height: 1.6; color: var(--body); }
+
+/* Pillars */
+.pillars { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.pillar {
+  position: relative; overflow: hidden;
+  padding: 24px; border-radius: 22px;
+  background: var(--card); border: 1px solid var(--line);
+}
+.pillar__kanji {
+  position: absolute; right: 18px; top: 12px;
+  font-family: var(--serif); font-size: 44px; line-height: 1; opacity: .85;
+}
+.pillar h3 { margin: 18px 0 0; font-size: 19px; font-weight: 650; letter-spacing: -0.03em; }
+.pillar p { margin: 6px 0 0; font-size: 14.5px; line-height: 1.55; color: var(--body); }
+.pillar__bar { margin-top: 18px; height: 6px; border-radius: 999px; overflow: hidden; }
+.pillar__bar span { display: block; height: 100%; border-radius: inherit; }
+
+/* Steps */
+.steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; counter-reset: step; }
+.step { padding: 24px; border-radius: 22px; background: var(--paper); border: 1px solid var(--line); }
+.step__num {
+  display: grid; place-items: center;
+  width: 34px; height: 34px; border-radius: 50%;
+  background: var(--accent-soft); color: var(--accent-deep);
+  font-weight: 700; font-size: 15px;
+}
+.step h3 { margin: 16px 0 0; font-size: 17px; font-weight: 650; letter-spacing: -0.03em; }
+.step p { margin: 6px 0 0; font-size: 14.5px; line-height: 1.6; color: var(--body); }
+
+/* Privacy banner */
+.promise {
+  display: grid; grid-template-columns: 1.1fr .9fr; gap: 40px; align-items: center;
+  padding: 48px; border-radius: 30px;
+  background: linear-gradient(135deg, #2f76b8, #235e94);
+  color: #fff;
+  box-shadow: 0 30px 60px -30px rgb(35 94 148 / .7);
+}
+.promise h2 { margin: 0; font-size: clamp(28px, 3.6vw, 40px); line-height: 1.1; letter-spacing: -0.04em; }
+.promise p { margin: 14px 0 0; font-size: 16.5px; line-height: 1.6; color: #dceaf7; }
+.promise ul { display: grid; gap: 14px; }
+.promise li {
+  display: flex; gap: 12px; align-items: flex-start;
+  font-size: 15.5px; font-weight: 500; line-height: 1.45;
+}
+.promise li svg {
+  flex: none; width: 24px; height: 24px; padding: 5px; border-radius: 50%;
+  background: rgb(255 255 255 / .18);
+  fill: none; stroke: #fff; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round;
+}
+
+/* CTA */
+.cta { text-align: center; }
+.cta img { width: 96px; height: 96px; margin: 0 auto; border-radius: 22px; box-shadow: 0 20px 40px -16px rgb(28 46 68 / .5); }
+.cta h2 { margin: 26px 0 0; font-size: clamp(30px, 4vw, 46px); line-height: 1.1; letter-spacing: -0.04em; }
+.cta p { margin: 14px auto 0; max-width: 32em; font-size: 17px; line-height: 1.6; color: var(--body); }
+.cta .btn { margin-top: 28px; }
+
+/* ---------- Legal documents ---------- */
+
+.doc { padding: 64px 0 96px; }
+.doc__inner { width: min(760px, 100% - 40px); margin: 0 auto; }
+.doc__head { display: flex; align-items: center; gap: 16px; }
+.doc__head img { width: 56px; height: 56px; border-radius: 14px; box-shadow: 0 10px 24px -10px rgb(28 46 68 / .5); }
+.doc h1 { margin: 0; font-size: clamp(34px, 5vw, 48px); letter-spacing: -0.045em; line-height: 1.05; }
+.doc__meta { margin: 6px 0 0; font-size: 14px; color: var(--muted); font-weight: 500; }
+.doc__intro { margin: 32px 0 0; font-size: 17.5px; line-height: 1.7; color: var(--ink); }
+.doc__card {
+  margin-top: 32px; padding: 40px;
+  border-radius: 26px; background: var(--card); border: 1px solid var(--line);
+  box-shadow: 0 20px 40px -30px rgb(28 46 68 / .35);
+}
+.doc__card section + section { margin-top: 30px; padding-top: 30px; border-top: 1px solid var(--line); }
+.doc h2 { margin: 0; font-size: 19px; font-weight: 650; letter-spacing: -0.03em; }
+.doc__card p { margin: 10px 0 0; font-size: 16px; line-height: 1.7; color: var(--body); }
+.doc__card a { color: var(--accent); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+.doc__toc {
+  margin-top: 28px; display: flex; flex-wrap: wrap; gap: 8px;
+}
+.doc__toc a {
+  padding: 7px 12px; border-radius: 999px;
+  background: var(--card); border: 1px solid var(--line);
+  font-size: 13px; font-weight: 600; color: var(--body);
+  transition: color .2s, background .2s;
+}
+.doc__toc a:hover { color: var(--ink); background: var(--accent-soft); }
+
+/* ---------- Reveal on scroll ---------- */
+
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
+.reveal.is-visible { opacity: 1; transform: none; }
+
+/* =========================================================
+   Footer — blue-hour meadow (1440 × 672 canvas, N u units)
+   ========================================================= */
+
+.footer {
+  --u: min(100vw / 1440, 100vh / 672);
+  --u: min(100vw / 1440, 100svh / 672);
+  position: relative; height: 100vh; height: 100svh;
+  background: var(--paper); overflow: hidden; isolation: isolate;
+}
+
+.footer__stage { position: absolute; inset: 0; z-index: 0; }
+.footer__video {
+  display: block; width: 100%; height: 100%;
+  object-fit: cover; object-position: 50% 100%;
+  transform: translateY(9%);
+}
+.footer__stage::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(to bottom,
+    var(--paper) 0%,
+    rgb(242 245 249 / .96) 26%,
+    rgb(242 245 249 / .72) 44%,
+    rgb(242 245 249 / 0) 70%);
+}
+
+.footer__wordmark {
+  position: absolute; left: 50%; bottom: calc(-2 * var(--u));
+  transform: translateX(-50%);
+  z-index: 1; margin: 0;
+  padding-top: .24em; /* lets the glass gradient cover the tall letters and the dot of the i */
+  font-size: calc(470 * var(--u)); font-weight: 600;
+  line-height: .74; letter-spacing: -0.045em; white-space: nowrap;
+  pointer-events: none; user-select: none;
+  color: rgb(232 234 250 / .4);
+  background: linear-gradient(to bottom, rgb(255 255 255 / .78), rgb(214 218 246 / .36) 48%, rgb(255 255 255 / .62));
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 calc(-1 * var(--u)) 0 rgb(255 255 255 / .55)) drop-shadow(0 0 calc(18 * var(--u)) rgb(190 200 255 / .45));
+}
+
+.footer__fog {
+  position: absolute; inset: auto 0 0; z-index: 2;
+  height: 17%; pointer-events: none;
+  background: linear-gradient(to top, var(--mist) 0%, rgb(226 227 241 / .6) 30%, rgb(226 227 241 / 0) 100%);
+}
+
+.footer__content {
+  position: relative; z-index: 3;
+  display: grid;
+  grid-template-columns: calc(440 * var(--u)) calc(240 * var(--u)) calc(240 * var(--u)) 1fr;
+  align-items: start;
+  width: calc(1440 * var(--u)); margin: 0 auto;
+  padding: calc(86 * var(--u)) calc(100 * var(--u)) 0 calc(160 * var(--u));
+}
+
+.brand__logo {
+  display: inline-flex; align-items: center; gap: calc(10 * var(--u));
+  font-size: calc(17 * var(--u)); font-weight: 500; letter-spacing: -0.02em;
+}
+.brand__mark {
+  width: calc(30 * var(--u)); height: calc(30 * var(--u));
+  border-radius: calc(8 * var(--u));
+  box-shadow: 0 calc(1 * var(--u)) calc(2 * var(--u)) rgb(28 46 68 / .25);
+  object-fit: cover;
+}
+.brand__title {
+  margin: calc(19 * var(--u)) 0 0;
+  font-size: calc(20 * var(--u)); font-weight: 600; line-height: 1.2; letter-spacing: -0.045em;
+}
+.brand__text {
+  max-width: calc(412 * var(--u)); margin: calc(18 * var(--u)) 0 0;
+  color: var(--body); font-size: calc(13.7 * var(--u)); line-height: 1.43; letter-spacing: -0.012em;
+}
+.brand__cta {
+  display: inline-flex; align-items: center; gap: calc(6 * var(--u));
+  height: calc(32.5 * var(--u)); margin-top: calc(20 * var(--u));
+  padding: 0 calc(16 * var(--u)) 0 calc(15 * var(--u));
+  border-radius: calc(7 * var(--u));
+  background: var(--ink); color: #fff;
+  font-size: calc(11.8 * var(--u)); font-weight: 500; letter-spacing: -0.01em;
+  transition: background .2s, transform .2s;
+}
+.brand__cta svg { width: calc(13 * var(--u)); height: calc(13 * var(--u)); margin-top: calc(-1.5 * var(--u)); }
+.brand__cta:hover { background: var(--accent); transform: translateY(-1px); }
+.brand__copy {
+  margin: calc(23 * var(--u)) 0 0;
+  color: var(--muted); font-size: calc(12.2 * var(--u)); letter-spacing: .01em;
+}
+.brand__by {
+  display: flex; align-items: center; gap: calc(5 * var(--u));
+  margin: calc(21 * var(--u)) 0 0;
+  font-size: calc(11.8 * var(--u)); font-weight: 500; letter-spacing: -0.01em;
+}
+.brand__heart { font-size: .95em; }
+.brand__author { display: inline-flex; align-items: center; gap: calc(6 * var(--u)); margin-left: calc(5 * var(--u)); }
+.brand__avatar {
+  width: calc(23 * var(--u)); height: calc(23 * var(--u));
+  border-radius: 50%; overflow: hidden; background: #e3e6ec;
+}
+.brand__avatar img { width: 100%; height: 100%; object-fit: cover; }
+.brand__status {
+  display: flex; flex-wrap: wrap; gap: calc(8 * var(--u));
+  margin-top: calc(16 * var(--u));
+}
+.chip {
+  display: inline-flex; align-items: center; gap: calc(6 * var(--u));
+  height: calc(25 * var(--u)); padding: 0 calc(10 * var(--u));
+  border: 1px solid rgb(28 46 68 / .12); border-radius: 999px;
+  background: rgb(255 255 255 / .55);
+  font-size: calc(10.8 * var(--u)); font-weight: 500; letter-spacing: -0.01em; white-space: nowrap;
+}
+.chip svg {
+  width: calc(11 * var(--u)); height: calc(11 * var(--u));
+  fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+}
+.chip__dot {
+  width: calc(6 * var(--u)); height: calc(6 * var(--u)); border-radius: 50%;
+  background: #2fb36a; box-shadow: 0 0 0 calc(2.5 * var(--u)) rgb(47 179 106 / .18);
+}
+
+.col__title {
+  margin: 0;
+  font-size: calc(16 * var(--u)); font-weight: 600; line-height: 1; letter-spacing: -0.045em;
+}
+.col__list {
+  display: grid; gap: calc(20.5 * var(--u)); margin-top: calc(24 * var(--u));
+  font-size: calc(13.7 * var(--u)); line-height: 1.24; letter-spacing: .022em; color: #24384f;
+}
+.col--menu .col__list {
+  gap: calc(15 * var(--u)); margin-top: calc(21 * var(--u));
+  font-weight: 500; letter-spacing: -0.025em; color: var(--ink);
+}
+.col__list a { transition: opacity .2s; }
+.col__list a:hover { opacity: .55; }
+
+/* ---------- Tablet ---------- */
+
+@media (max-width: 1023px) and (min-width: 768px) {
+  .footer { --u: min(100vw / 1040, 100svh / 672); }
+  .footer__content {
+    grid-template-columns: calc(400 * var(--u)) calc(190 * var(--u)) calc(210 * var(--u)) 1fr;
+    width: calc(1040 * var(--u));
+    padding: calc(64 * var(--u)) calc(40 * var(--u)) 0;
+  }
+  .brand__text { max-width: calc(350 * var(--u)); }
+  .footer__wordmark { font-size: calc(346 * var(--u)); bottom: calc(10 * var(--u)); }
+
+  .features { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .pillars, .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* ---------- Mobile ---------- */
+
+@media (max-width: 767px) {
+  .nav__links a:not(.btn) { display: none; }
+  .hero { padding: 40px 0 64px; }
+  .hero__grid { grid-template-columns: 1fr; gap: 40px; }
+  .hero__art { order: -1; }
+  .hero__logo { width: min(260px, 70vw); }
+  .hero__lead { font-size: 16.5px; }
+  .section { padding: 72px 0; }
+  .features, .pillars, .steps { grid-template-columns: 1fr; }
+  .promise { grid-template-columns: 1fr; padding: 32px 24px; }
+  .doc { padding: 40px 0 72px; }
+  .doc__card { padding: 26px 20px; }
+
+  .footer {
+    --u: 1px;
+    display: flex; flex-direction: column;
+    height: auto; min-height: 100svh;
+  }
+  .footer__stage::after {
+    background: linear-gradient(to bottom,
+      var(--paper) 0%,
+      rgb(242 245 249 / .95) 50%,
+      rgb(242 245 249 / .8) 68%,
+      rgb(242 245 249 / 0) 90%);
+  }
+  .footer__content {
+    grid-template-columns: auto auto auto;
+    justify-content: space-between;
+    column-gap: 12px; row-gap: 36px;
+    width: 100%; padding: 40px 20px 0;
+    margin-bottom: max(34vw, 150px);
+  }
+  .brand { grid-column: 1 / -1; }
+  .brand__title { font-size: 21px; }
+  .brand__text { max-width: 34em; font-size: 14px; }
+  .brand__cta { height: 38px; padding: 0 18px 0 16px; border-radius: 8px; font-size: 13px; }
+  .brand__cta svg { width: 14px; height: 14px; }
+  .brand__copy, .brand__by { font-size: 12.5px; }
+  .chip { height: 28px; font-size: 12px; }
+  .col__title { font-size: 15px; }
+  .col__list, .col--menu .col__list {
+    gap: 14px; margin-top: 20px; font-size: 13px; letter-spacing: 0; white-space: nowrap;
+  }
+  .footer__wordmark { bottom: 5vw; font-size: 34vw; }
+  .footer__fog { height: 7%; }
+}
+
+@media (max-width: 359px) {
+  .footer__content { grid-template-columns: 1fr 1fr; }
+}
+
+/* ---------- Motion preferences ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .brand__cta, .col__list a, .btn, .feature, .nav { transition: none; }
+  .hero__logo { animation: none; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+}
+
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <!-- ===== Navigation ===== -->
+  <header class="nav" id="nav">
+    <div class="wrap nav__inner">
+      <a class="nav__brand" href="index.html" aria-label="Sumi home">
+        <img src="sumi-logo.jpg" alt="" width="34" height="34" />
+        Sumi
+      </a>
+      <nav class="nav__links" aria-label="Main">
+        <a href="index.html#features">Features</a>
+        <a href="index.html#kakeibo">Kakeibo</a>
+        <a href="index.html#how">How it works</a>
+        <a href="privacy.html">Privacy</a>
+        <a class="btn btn--small" href="index.html#download">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.05 12.54c-.03-2.75 2.25-4.07 2.35-4.14-1.28-1.87-3.27-2.13-3.98-2.16-1.69-.17-3.3 1-4.16 1-.86 0-2.18-.97-3.59-.95-1.85.03-3.55 1.07-4.5 2.72-1.92 3.33-.49 8.25 1.38 10.95.91 1.32 2 2.8 3.43 2.75 1.38-.06 1.9-.89 3.56-.89 1.66 0 2.13.89 3.59.86 1.48-.03 2.42-1.34 3.33-2.67 1.05-1.53 1.48-3.02 1.5-3.1-.03-.01-2.88-1.1-2.91-4.37ZM14.31 4.46c.76-.92 1.27-2.2 1.13-3.46-1.09.04-2.41.73-3.19 1.64-.7.81-1.31 2.1-1.15 3.34 1.22.09 2.46-.62 3.21-1.52Z"/></svg>
+          Get Sumi
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="doc">
+    <div class="doc__inner">
+      <div class="doc__head">
+        <img src="sumi-logo.jpg" alt="" width="56" height="56" />
+        <div>
+          <h1>Terms of Use</h1>
+          <p class="doc__meta">Sumi · Last updated 15 October 2026</p>
+        </div>
+      </div>
+
+      <p class="doc__intro">These Terms of Use are an agreement between you and chmays.app, the developer of Sumi. By downloading or using Sumi, you agree to these terms. Please read them carefully.</p>
+
+      <nav class="doc__toc" aria-label="On this page">
+          <a href="#acceptance-of-these-terms">1. Acceptance of these terms</a>
+          <a href="#the-app">2. The app</a>
+          <a href="#not-financial-advice">3. Not financial advice</a>
+          <a href="#your-data-and-your-responsibility">4. Your data and your responsibility</a>
+          <a href="#acceptable-use">5. Acceptable use</a>
+          <a href="#intellectual-property">6. Intellectual property</a>
+          <a href="#apple-app-store-and-icloud">7. Apple App Store and iCloud</a>
+          <a href="#disclaimer">8. Disclaimer</a>
+          <a href="#limitation-of-liability">9. Limitation of liability</a>
+          <a href="#changes-to-the-app-and-these-terms">10. Changes to the app and these terms</a>
+          <a href="#ending-your-use">11. Ending your use</a>
+          <a href="#governing-law">12. Governing law</a>
+          <a href="#contact">13. Contact</a>
+      </nav>
+
+      <div class="doc__card">
+          <section id="acceptance-of-these-terms">
+            <h2>1. Acceptance of these terms</h2>
+            <p>By downloading, installing or using Sumi, you agree to these Terms of Use and to our <a href="privacy.html">Privacy Policy</a>. If you do not agree, please do not use the app.</p>
+          </section>
+          <section id="the-app">
+            <h2>2. The app</h2>
+            <p>Sumi is a personal budgeting journal based on the kakeibo method. It lets you plan your month, record expenses, keep a wait list, fill savings jars and reflect on your spending. Sumi is currently free to use. If paid features are offered in the future, their price and terms will be shown clearly before any purchase, and you will never be charged without your confirmation through the App Store.</p>
+          </section>
+          <section id="not-financial-advice">
+            <h2>3. Not financial advice</h2>
+            <p>Sumi is a tool for personal organisation and reflection. Nothing in the app, including suggested budget splits, tips and explanations, is financial, investment, tax or legal advice. You are responsible for your own financial decisions. For professional advice, please speak with a qualified advisor.</p>
+          </section>
+          <section id="your-data-and-your-responsibility">
+            <h2>4. Your data and your responsibility</h2>
+            <p>All information you enter is stored on your device and, if you use iCloud, in your private iCloud account provided by Apple. We cannot access your data, so we cannot recover it for you. You are responsible for keeping your devices and Apple Account secure and for keeping backups. We are not responsible for data lost because a device is lost, damaged or reset, because iCloud is turned off or unavailable, or because the app or its data was deleted.</p>
+          </section>
+          <section id="acceptable-use">
+            <h2>5. Acceptable use</h2>
+            <p>Sumi is licensed for your personal, non-commercial use. You agree not to copy, modify, distribute, sell or rent the app, and not to reverse engineer, decompile or try to extract its source code, except where the law allows this.</p>
+          </section>
+          <section id="intellectual-property">
+            <h2>6. Intellectual property</h2>
+            <p>The Sumi name, design, code, text and graphics belong to chmays.app and are protected by copyright and other laws. These terms do not give you any ownership rights in the app.</p>
+          </section>
+          <section id="apple-app-store-and-icloud">
+            <h2>7. Apple App Store and iCloud</h2>
+            <p>These terms are between you and chmays.app only, not Apple. Your use of Sumi is also subject to Apple’s Licensed Application End User License Agreement, the App Store terms and, if you use iCloud sync, Apple’s iCloud terms. Apple has no obligation to provide maintenance or support for the app. Apple and its subsidiaries are third-party beneficiaries of these terms and may enforce them against you.</p>
+          </section>
+          <section id="disclaimer">
+            <h2>8. Disclaimer</h2>
+            <p>Sumi is provided “as is” and “as available”. We work hard to make it reliable and accurate, but we do not guarantee that it will be free of errors, interruptions or bugs, that iCloud sync will always be available or immediate, or that calculations will always be correct. Please check important figures yourself.</p>
+          </section>
+          <section id="limitation-of-liability">
+            <h2>9. Limitation of liability</h2>
+            <p>To the fullest extent permitted by law, chmays.app is not liable for any indirect, incidental or consequential damages, or for any loss of data, savings or profits, arising from your use of Sumi. Nothing in these terms limits any rights you have as a consumer that cannot be limited by law.</p>
+          </section>
+          <section id="changes-to-the-app-and-these-terms">
+            <h2>10. Changes to the app and these terms</h2>
+            <p>We may update, change or stop offering Sumi or any of its features at any time. We may also update these terms. When we do, we will change the “Last updated” date above. Continuing to use Sumi after an update means you accept the new terms.</p>
+          </section>
+          <section id="ending-your-use">
+            <h2>11. Ending your use</h2>
+            <p>You can stop using Sumi at any time by deleting it from your device. We may end your licence to use the app if you break these terms.</p>
+          </section>
+          <section id="governing-law">
+            <h2>12. Governing law</h2>
+            <p>These terms are governed by the laws of Denmark. This does not take away any protection you have under the mandatory consumer laws of the country where you live.</p>
+          </section>
+          <section id="contact">
+            <h2>13. Contact</h2>
+            <p>Questions about these terms? Contact chmays.app at <a href="mailto:support@chmays.app">support@chmays.app</a>.</p>
+          </section>
+      </div>
+    </div>
+  </main>
+
+  <!-- ===== Footer: blue-hour meadow ===== -->
+  <footer class="footer">
+    <div class="footer__stage" aria-hidden="true">
+      <video class="footer__video"
+        src="https://d2ol7oe51mr4n9.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/4d01c727-d9c5-47c8-a778-35a451ffd39f.mp4"
+        poster="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20261014_121838_c97d0940-f430-4304-8573-4f47ee44f447.png"
+        autoplay muted loop playsinline preload="auto"></video>
+    </div>
+    <p class="footer__wordmark" aria-hidden="true">Sumi</p>
+    <div class="footer__fog" aria-hidden="true"></div>
+
+    <div class="footer__content">
+      <div class="brand">
+        <a class="brand__logo" href="index.html" aria-label="Sumi home">
+          <img class="brand__mark" src="sumi-logo.jpg" alt="" />
+          Sumi
+        </a>
+        <h2 class="brand__title">Mindful money, the kakeibo way</h2>
+        <p class="brand__text">Sumi brings kakeibo, the Japanese art of mindful spending, to your iPhone. Save first, track the four pillars, fill your savings jars and reflect at the end of every month.</p>
+        <!-- Replace href="#" with your App Store link once Sumi is live -->
+        <a class="brand__cta" href="#">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.05 12.54c-.03-2.75 2.25-4.07 2.35-4.14-1.28-1.87-3.27-2.13-3.98-2.16-1.69-.17-3.3 1-4.16 1-.86 0-2.18-.97-3.59-.95-1.85.03-3.55 1.07-4.5 2.72-1.92 3.33-.49 8.25 1.38 10.95.91 1.32 2 2.8 3.43 2.75 1.38-.06 1.9-.89 3.56-.89 1.66 0 2.13.89 3.59.86 1.48-.03 2.42-1.34 3.33-2.67 1.05-1.53 1.48-3.02 1.5-3.1-.03-.01-2.88-1.1-2.91-4.37ZM14.31 4.46c.76-.92 1.27-2.2 1.13-3.46-1.09.04-2.41.73-3.19 1.64-.7.81-1.31 2.1-1.15 3.34 1.22.09 2.46-.62 3.21-1.52Z"/></svg>
+          Get Sumi today
+        </a>
+        <p class="brand__copy">© <span class="js-year">2026</span> chmays.app · Made in Denmark.</p>
+        <p class="brand__by">Built with <span class="brand__heart" aria-label="love">💙</span> by <span class="brand__author"><span class="brand__avatar" aria-hidden="true"><img src="sumi-logo.jpg" alt="" /></span>chmays.app</span></p>
+        <ul class="brand__status" aria-label="Sumi status">
+          <li class="chip"><span class="chip__dot" aria-hidden="true"></span>Free · Every feature</li>
+          <li class="chip">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11a8 8 0 1 0-2.3 5.7" /><path d="M20 4v7h-7" /></svg>
+            v1.0 · iCloud sync
+          </li>
+          <li class="chip">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2" /><path d="M8 11V8a4 4 0 0 1 8 0v3" /></svg>
+            No ads · No tracking
+          </li>
+        </ul>
+      </div>
+
+      <nav class="col col--menu" aria-label="Menu">
+        <h3 class="col__title">Menu</h3>
+        <ul class="col__list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#features">Features</a></li>
+          <li><a href="index.html#kakeibo">Kakeibo</a></li>
+          <li><a href="index.html#how">How it works</a></li>
+          <li><a href="index.html#download">Download</a></li>
+        </ul>
+      </nav>
+
+      <nav class="col" aria-label="Essentials">
+        <h3 class="col__title">Essentials</h3>
+        <ul class="col__list">
+          <li><a href="mailto:support@chmays.app">Support</a></li>
+          <li><a href="privacy.html">Privacy policy</a></li>
+          <li><a href="terms.html">Terms of use</a></li>
+          <li><a href="mailto:support@chmays.app?subject=Sumi%20feedback">Send feedback</a></li>
+        </ul>
+      </nav>
+
+      <nav class="col" aria-label="From our team">
+        <h3 class="col__title">From our team</h3>
+        <ul class="col__list">
+          <li><a href="https://shiftdesk.github.io/chmays/">chmays.app</a></li>
+          <li><a href="https://shiftdesk.github.io/chmays/">Vino – Wine Scanner</a></li>
+          <li><a href="https://shiftdesk.github.io/chmays/">Casa di Scoop Pro</a></li>
+          <li><a href="https://shiftdesk.github.io/chmays/">Zest Training</a></li>
+          <li><a href="https://shiftdesk.github.io/chmays/">Trailmark</a></li>
+          <li><a href="https://shiftdesk.github.io/chmays/">Journey &amp; Journal</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    // Current year in the footer
+    document.querySelectorAll('.js-year').forEach(function (el) { el.textContent = new Date().getFullYear(); });
+
+    // Border under the navigation once the page scrolls
+    var nav = document.getElementById('nav');
+    function onScroll() { nav.classList.toggle('is-scrolled', window.scrollY > 8); }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    // Gentle reveal on scroll
+    var items = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) { entry.target.classList.add('is-visible'); io.unobserve(entry.target); }
+        });
+      }, { threshold: 0.12 });
+      items.forEach(function (el) { io.observe(el); });
+    } else {
+      items.forEach(function (el) { el.classList.add('is-visible'); });
+    }
+  </script>
+</body>
+</html>
